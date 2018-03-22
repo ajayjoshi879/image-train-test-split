@@ -3,14 +3,19 @@ Many image data sets for machine learning need splitting into training and testi
 
 For example if Image is the parent directory, then the structure is as below (just an example)
 
-|- images/
-			|- test /
-				|- car/
-				|- ship/
-        |- object-whatever/
-
-			|- train /
-				|- car/
-				|- ship/
-        |- object-whatever/
+images/
+	test /
+		car/
+		ship/
+		object-whatever/
+		.
+		.
+		.
+	train /
+		car/
+		ship/
+		object-whatever/
+		.
+		.
+		.
 
