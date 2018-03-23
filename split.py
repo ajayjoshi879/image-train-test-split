@@ -14,7 +14,10 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR TH
 
 
 """
-This program as it is, is intended to be used to create a train test split of image data used of machine learnin.
+This program as it is, is intended to be used to create a train test split of image data used of machine learning.
+
+NOTE: This piece has not been written with much attention paid to detail. If you find a bug, you can open up and issue
+or mail me at rocksyne@gmail.com
 """
 
 from pathlib import Path
@@ -52,7 +55,8 @@ def cloneParentImageFolder(parentPath,ratio=70):
         te_subDir, test = createDir(parentPath,"test",dirList) # create the test
         
         if train == test:
-            print("done")
+            #print("done")
+            pass
         
         #lets collect all the images in this diectory into a list and index them
         imgCollection = next(os.walk(parentPath+"\\"+dirList))[2]
@@ -66,20 +70,20 @@ def cloneParentImageFolder(parentPath,ratio=70):
                                                            # that will give us an error!
         
         #lets do something nice! Lets note take the image in the sequential manner they come in the folder
-        # lets pict them randomly. How ever, the shape must  macth the total count items in the folder
+        # lets pict them randomly. How ever, the size must  macth the total count items in the folder
         my_randoms = random.sample(xrange(imgCount), imgCount)
     
         #now these files go to the train
         for randIteration in my_randoms[0:trainFileCoult]:
             source = parentPath+"\\"+dirList+"\\"+imgCollection[int(randIteration)]
             dest = tr_subDir+"\\"+imgCollection[int(randIteration)]
-            #print(copyfile(str(source),str(dest)))
+            print("Completed --> ",copyfile(str(source),str(dest)))
             
         #now for the test
         for randIteration in my_randoms[trainFileCoult+1:imgCount]:
             source = parentPath+"\\"+dirList+"\\"+imgCollection[int(randIteration)]
             dest = te_subDir+"\\"+imgCollection[int(randIteration)]
-            #print(copyfile(str(source),str(dest)))
+            print("Completed --> ",copyfile(str(source),str(dest)))
             
             
 
